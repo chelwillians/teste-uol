@@ -487,7 +487,8 @@ body {
         #general #content .table-area table td span {
           color: #fff;
           padding: 5px 10px;
-          border-radius: 5px; }
+          border-radius: 5px;
+          background-color: #f1c40f; }
           #general #content .table-area table td span.complete {
             background-color: #2ecc71; }
           #general #content .table-area table td span.pending {
