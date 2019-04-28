@@ -395,15 +395,15 @@ template {
   display: none; }
 
 body {
-  display: flex;
-  flex-direction: column;
   background-color: #dfe6e9;
   font-family: "Raleway", sans-serif;
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  width: 100vw;
+  height: 100vh; }
 
 #general {
-  width: calc(100vw - 30px);
-  height: calc(100vh - 30px);
+  width: calc(100% - 30px);
+  min-height: calc(100% - 30px);
   padding: 15px; }
   #general #content h1 {
     margin: 0;
@@ -497,3 +497,25 @@ body {
         background-color: #ecf0f1; }
       #general #content .table-area table tr:hover {
         background-color: #bdc3c7; }
+
+@media (max-width: 650px) {
+  #general #content .table-area .filter-area {
+    flex-direction: column-reverse;
+    padding: 15px 0;
+    height: auto; }
+  #general #content .table-area .filter-area .filters {
+    flex-direction: column;
+    transform: translateY(-5vh) !important;
+    transform: translateX(0);
+    display: none; }
+    #general #content .table-area .filter-area .filters.active {
+      display: flex; }
+  #general #content .table-area .ordination {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px; }
+  #general #content .table-area .filter-area .filters.active {
+    transform: translateY(0) !important;
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: all; } }

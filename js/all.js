@@ -1,10 +1,13 @@
 // Icon filter click effect
 let filterIcon = document.querySelector('.filter-icon');
 let filters = document.querySelector('.filters');
+let filterArea = document.querySelector('.filter-area');
+
 
 filterIcon.onclick = function () {
     this.classList.toggle('active');
     filters.classList.toggle('active');
+    filterArea.classList.toggle('active');
 }
 
 // Create filters
