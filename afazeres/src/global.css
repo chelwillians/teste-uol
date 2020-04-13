@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap');
+:root{
+    --font: 'Open Sans', sans-serif;
+    --containerSize: 1100px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--font);
+    -webkit-font-feature-settings: antialiased;
+}
+
+input, button, textarea{
+    font: var(--font);
+}
+
+button{
+    cursor: pointer;
+}
+
+.container{
+    width: 100%;
+    max-width: var(--containerSize);
+    margin: 0 auto;
+}
