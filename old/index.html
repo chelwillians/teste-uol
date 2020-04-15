@@ -52,46 +52,36 @@
                         <td>1delectus aut autem</td>
                         <td><span class="pending">Pendente</span></td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>zdelectus aut autem</td>
-                        <td><span class="pending">Pendente</span></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>bdelectus aut autem</td>
-                        <td><span class="complete">Completo</span></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>hdelectus aut autem</td>
-                        <td><span class="pending">Pendente</span></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>0delectus aut autem</td>
-                        <td><span class="pending">Pendente</span></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>6</td>
-                        <td>delectus aut autem</td>
-                        <td><span class="pending">Pendente</span></td>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>7</td>
-                        <td>,delectus aut autem</td>
-                        <td><span class="pending">Pendente</span></td>
-                    </tr>
                 </table>
             </div>
         </div>
     </div>
+    <script>
+        var requestURL = 'https://jsonplaceholder.typicode.com/todos';
+        var request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+        request.onload = function () {
+            var todos = request.response;            
+            todos.map((todo) => {
+                document.querySelector('#table tbody').appendChild(document.createElement('tr'));
+                document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td')).innerText = todo.id;
+                document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td')).innerText = todo.userId;
+                document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td')).innerText = todo.title;
+
+                if (todo.completed) {
+                    document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td'));
+                    document.querySelector('#table tbody tr:last-child td:last-child').appendChild(document.createElement('span')).innerText = "Completo";
+                    document.querySelector('#table tbody tr:last-child span').classList.add('complete');
+                } else {
+                    document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td'));
+                    document.querySelector('#table tbody tr:last-child td:last-child').appendChild(document.createElement('span')).innerText = "Pendente";
+                    document.querySelector('#table tbody tr:last-child span').classList.add('pending');
+                }
+            });            
+        }
+    </script>
 </body>
 
 </html>
