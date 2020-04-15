@@ -62,6 +62,7 @@
         request.open('GET', requestURL);
         request.responseType = 'json';
         request.send();
+
         request.onload = function () {
             var todos = request.response;            
             todos.map((todo) => {
@@ -70,15 +71,9 @@
                 document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td')).innerText = todo.userId;
                 document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td')).innerText = todo.title;
 
-                if (todo.completed) {
-                    document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td'));
-                    document.querySelector('#table tbody tr:last-child td:last-child').appendChild(document.createElement('span')).innerText = "Completo";
-                    document.querySelector('#table tbody tr:last-child span').classList.add('complete');
-                } else {
-                    document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td'));
-                    document.querySelector('#table tbody tr:last-child td:last-child').appendChild(document.createElement('span')).innerText = "Pendente";
-                    document.querySelector('#table tbody tr:last-child span').classList.add('pending');
-                }
+                document.querySelector('#table tbody tr:last-child').appendChild(document.createElement('td'));
+                document.querySelector('#table tbody tr:last-child td:last-child').appendChild(document.createElement('span')).innerText = todo.completed ? 'Completo' : 'Pendente';
+                document.querySelector('#table tbody tr:last-child span').classList.add(todo.completed ? 'complete' : 'pending');
             });            
         }
     </script>
